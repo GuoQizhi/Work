@@ -1,0 +1,157 @@
+#!/usr/bin/env python
+# license removed for brevity
+import rospy
+import numpy as numpy
+import PyKDL
+import math
+from sensor_msgs.msg import Range
+from geometry_msgs.msg import Twist
+from geometry_msgs.msg import PoseWithCovarianceStamped
+
+range_value = 0.0
+x_value = 0.0
+y_value = 0.0
+yaw = 0.0
+
+def callback(msg):
+    global range_value
+    range_value = msg.range
+
+def posecallback(msg):
+    global x_value, y_value, yaw
+    x_value = msg.pose.pose.position.x
+    y_value = msg.pose.pose.position.y
+
+    ori_x = msg.pose.pose.orientation.x
+    ori_y = msg.pose.pose.orientation.y
+    ori_z = msg.pose.pose.orientation.z
+    ori_w = msg.pose.pose.orientation.w
+    rot = PyKDL.Rotation.Quaternion(ori_x, ori_y, ori_z, ori_w)
+    yaw = rot.GetRPY()[2]
+
+def move():
+    sub = rospy.Subscriber('/sonar', Range, callback) # in real robot: /sonar
+    amcl_sub = rospy.Subscriber('/amcl_pose', PoseWithCovarianceStamped, posecallback)
+    pub = rospy.Publisher('/cmd_vel', Twist, queue_size=10)
+    rospy.init_node('bug0', anonymous=True)
+    rate = rospy.Rate(10)
+    msg = Twist()
+    global range_value
+    rospy.Time.now()
+    rospy.get_rostime()
+
+    goal_x = 1.8
+    goal_y = 0.0
+    
+    cumulative_distance = 0
+    range_value_last = range_value
+    time_period = 0.2
+    t = 0.0
+    forward = True
+    start_x = x_value
+    start_y = y_value
+    desired_yaw = yaw
+    while not rospy.is_shutdown():
+        desired_yaw = math.atan2(goal_y - y_value, goal_x - x_value)
+        while abs(yaw - desired_yaw) > 0.1:
+            msg.linear.x = 0.0
+            msg.angular.z = math.pi / 8
+            pub.publish(msg)
+            rate.sleep()
+            print("yaw check")
+        
+        if range_value < 0.3:
+            while range_value < 1.0:    # turn around to avoid obstacles
+                msg.linear.x = 0
+                msg.angular.z = - math.pi / 12
+                pub.publish(msg)
+                rate.sleep()
+                print("obstacle turn")
+            for i in range(20):    # obstacle move forward for a few seconds
+                msg.linear.x = 0.0
+                msg.angular.z = - math.pi / 8
+                pub.publish(msg)
+                rate.sleep()
+                print("obstacle move forward extra")
+            for i in range(50):    # obstacle move forward for a few seconds
+                msg.linear.x = 0.2
+                msg.angular.z = 0.0
+                pub.publish(msg)
+                rate.sleep()
+                print("obstacle move forward")
+        else:
+            for i in range(85):    # move forward
+                msg.linear.x = 0.3
+                msg.angular.z = 0.0
+                pub.publish(msg)
+                rate.sleep()
+                if math.sqrt(math.pow(goal_x - x_value, 2) + math.pow(goal_y - y_value, 2)) < 0.05:
+                    msg.linear.x = 0.0
+                    msg.angular.z = 0.0
+                    pub.publish(msg)
+                    rate.sleep()
+                    print("end")
+                    return
+                    break
+                if range_value < 0.3:
+                    break
+                print("move forward")
+            desired_yaw = math.atan2(goal_y - y_value, goal_x - x_value)
+            while abs(yaw - desired_yaw) > 0.1:
+                msg.linear.x = 0.0
+                msg.angular.z = - math.pi / 20
+                pub.publish(msg)
+                rate.sleep()
+                print("yaw check second")
+
+
+​                
+​        rate.sleep()
+​    
+​    rospy.spin()
+
+if __name__ == '__main__':
+    try:
+        move()
+    except rospy.ROSInterruptException:
+        pass
+
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+#!/usr/bin/env python
+import rospy
+from geometry_msgs.msg import Twist
+from sensor_msgs.msg import Joy
+import time
+
+def callback(msg):
+    start = time.time()
+    twist = Twist()
+    twist.linear.x = 0.3 * data.axes[7]
+    twist.angular.z = 0.3 * data.axes[6]
+    print('speed: %.2f, turn: %.2f'%(twist.linear.x, twist.angular.z))
+    if data.buttons[0] == 1:
+        twist.linear.x = 0
+        twist.angular.z = 0
+        print("STOP!!")
+    pub.publish(twist)
+    end = time.time()
+    print('time cost: ' + str(end - start) + ' s' + '\n')
+
+def start():
+    global pub
+    pub = rospy.Publisher('cmd_vel', Twist)
+    # subscribed to joystick inputs on topic "joy"
+    rospy.Subscriber("joy", Joy, callback)
+    # starts the node
+    rospy.init_node('joytwist')
+    rospy.spin()
+
+if __name__ == '__main__':
+    start()

@@ -1,0 +1,56 @@
+Average error: 
+The error of picture 1 is 0.0392129 pixel
+The error of picture 2 is 0.0266405 pixel
+The error of picture 3 is 0.027776 pixel
+The error of picture 4 is 0.0238452 pixel
+The error of picture 5 is 0.0280556 pixel
+The error of picture 6 is 0.0270388 pixel
+The error of picture 7 is 0.0210838 pixel
+The error of picture 8 is 0.0237867 pixel
+The error of picture 9 is 0.0305582 pixel
+The error of picture 10 is 0.0396076 pixel
+The error of picture 11 is 0.0222589 pixel
+The error of picture 12 is 0.0238833 pixel
+The error of picture 13 is 0.028223 pixel
+The error of picture 14 is 0.0290212 pixel
+The error of picture 15 is 0.0381264 pixel
+The error of picture 16 is 0.0344797 pixel
+The error of picture 17 is 0.0272636 pixel
+The error of picture 18 is 0.021072 pixel
+The error of picture 19 is 0.0287398 pixel
+The error of picture 20 is 0.0414634 pixel
+The error of picture 21 is 0.02419 pixel
+The error of picture 22 is 0.0227999 pixel
+The error of picture 23 is 0.0337382 pixel
+The error of picture 24 is 0.0885587 pixel
+The error of picture 25 is 0.0602337 pixel
+The error of picture 26 is 0.022314 pixel
+The error of picture 27 is 0.0194959 pixel
+The error of picture 28 is 0.0325356 pixel
+The error of picture 29 is 0.0430346 pixel
+The error of picture 30 is 0.13239 pixel
+The error of picture 31 is 0.326193 pixel
+The error of picture 32 is 0.109827 pixel
+The error of picture 33 is 0.264948 pixel
+The error of picture 34 is 0.281483 pixel
+The error of picture 35 is 0.212184 pixel
+The error of picture 36 is 0.207737 pixel
+Overall average error is: 0.0684389 pixel
+
+Intrinsic: 
+[1830.663054742783, 0, 1172.704097926742;
+ 0, 1831.447923915213, 1046.215365641653;
+ 0, 0, 1]
+
+Distortion parameters: 
+[-0.1176796347123737, 0.1632088837704542, 0.000392414967182324, 0.001739268206218921, -0.05077459483444856]
+
+Extrinsic: 
+-0.00589087,-0.999796,-0.0193311,0.0700773
+-0.0168285,0.0194278,-0.99967,-0.0683811
+0.999841,-0.00556361,-0.0169395,0.870115
+0,0,0,1
+0.337571,-0.964245,-1.11336,0,0,0
+
+
+

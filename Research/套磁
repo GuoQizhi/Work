@@ -1,0 +1,26 @@
+Dear Prof. Zhang,
+
+My name is Chunran Zheng. At present, I am a senior undergraduate majoring in Automation Department of Xi'an Jiaotong University. I notice that you have done a lot of outstanding work in robot perception technology and navigation, and I am particularly interested in this field. Based on years of experience in robot competitions, I have independently built a service robot in the past year, which has achieved specific functions in terms of positioning, mapping, navigation, decision-making, mechanical arm grabbing, etc. For example, the robot can collect throat swabs for patients during the epidemic, and related videos were placed at the end of my resume. At the same time, I also published a medical engineering cross paper about the wearable device based on flexible electronics.(https://pubs.acs.org/doi/10.1021/acsami.0c08114)
+
+I have my own research plan for the field of SLAM Based on multi-sensor fusion, and semantic SLAM, etc. I also look forward to Prof. Zhang giving me a topic and asking me to write a new research plan to test me.
+I summoned up a lot of courage to send you this email, because you and your team are so excellent. I have seen the contributions of your team's open source code like LOAM_LIVOX to the robotics community. 
+
+Frankly speaking, I'm very excited about your research field and the achievements you've made. It's too close to my dream research field, so I have to make an attempt to contact you. If I miss the opportunity, I won't be able to do what I really love. I sincerely hope that you can give me a chance to further study in PhD under your guidance, and I believe I can be your right assistant and proud student. I want to ask if you have any extra PhD or RA quota. Look forward to our further communication.
+
+Sincerely,
+Chunran Zheng
+
+
+
+Dear Prof. Hong,
+
+My name is Qizhi Guo. I am currently studying for a Master's degree at the University of Hong Kong and doing some research at Fu Zhang's group. My undergraduate studies were at China Agricultural University, majoring in Mechatronics Engineering. I notice that you have done many outstanding work in sensing and computer vision,  and I am particularly interested in this field. 
+
+During my research work at HKU, I made a data acquisition device on DJI M300 aircraft. I drew the connections by Solidworks independently, used a microcontroller to do the hard synchronisation of the Livox LiDAR Avia and Hikrobot Industrial Camera. Furthermore, I performed the intrinsic and extrinsic calibration, debugged the camera effects, configured the environment for the Manifold, and finally used my own acquisition package for slam-related research and study. 
+
+The works which have been done by your group are excellent. I have used your team's open source algorithm Pixel-level Extrinsic Self Calibration for the extrinsic calibration of camera and LiDAR. Also, I have seen the contributions of your team's open source code like CamVox to the robotics community. From my perspective, it is interesting to do research in the semantic slam and multi-sensor fusion direction, which will be interesting and challenging. Surely, I am looking forward to being given a project as a test by Prof. Hong and I will work harder to complete the task.
+
+To be honest, I am very interested in your research field and admire the achievements you have reached. It is so close to my research dream, so I must make an attempt to contact with you. I sincerely hope that you can give me a chance to further study in PhD under your guidance, and I believe I can be your right assistant and proud student. I want to ask if you have any extra PhD or RA quota. Look forward to our further communication.
+
+Sincerely,
+Qizhi Guo
