@@ -39,9 +39,9 @@
 
 - 该ros文件的参数，从config和launch文件夹去找
 
-- ros record是记录数据
+- rosbag record是记录数据
 
-- ros play 时间(通过tab)运行记录的数据
+- rosbag play 时间(通过tab)运行记录的数据
 
 - 20ms指的是用该CPU跑fast-lio算法生成一帧点云需要的时间
 
